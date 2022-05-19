@@ -98,4 +98,4 @@ class SearchOrder2Test(unittest.TestCase):
         names: List[str] = [product.name for product in products]
 
         self.assertNotEqual(sorted(names), sorted(names, reverse=True))
-        self.assertNotEqual(names, sorted(names, reverse=True, key=str.lower))
+        self.assertEqual(names, sorted(names, reverse=True, key=str.lower))
