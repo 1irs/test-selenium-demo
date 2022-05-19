@@ -8,6 +8,8 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
 from page_object.search_page import SearchPage, ProductInfo
+from webdriver_factory import WebDriverFactory
+
 
 class SearchOrder2Test(unittest.TestCase):
 
@@ -17,7 +19,7 @@ class SearchOrder2Test(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         """Предустановка. Выполняется один раз перед всеми тестами."""
-        cls.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+        cls.driver = WebDriverFactory.get_driver()
 
         # Предусловие: открыта страница поиска.
         cls.search_page = SearchPage(cls.driver)
